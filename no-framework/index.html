@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo no-framework</title>
+  </head>
+  <body>
+    <main>
+      <h1>My TODO</h1>
+
+      <header class="todo-input-header">
+        <label for="todo-input">New todo</label>
+        <input id="todo-input" type="text" placeholder="Input description"/>
+        <button id="add-todo-button" disabled>Add</button>
+      </header>
+
+      <ol id="todo-list"></ol>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

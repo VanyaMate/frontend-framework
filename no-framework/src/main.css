@@ -1,0 +1,48 @@
+* {
+    margin      : 0;
+    padding     : 0;
+    box-sizing  : border-box;
+    font-family : Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+main {
+    width          : 100%;
+    max-width      : 600px;
+    margin         : 10px auto;
+    padding        : 10px;
+    border         : 1px solid #DDD;
+
+    display        : flex;
+    flex-direction : column;
+    gap            : 20px;
+}
+
+ul, ol {
+    padding-left   : 27px;
+    display        : flex;
+    flex-direction : column;
+    gap            : 12px;
+}
+
+.task {
+    display : list-item;
+
+    > button {
+        margin-left : 12px;
+    }
+}
+
+.todo-input-header {
+    display        : flex;
+    flex-direction : column;
+    gap            : 5px;
+
+    label {
+        font-style : italic;
+        color      : #666;
+    }
+}
+
+input, button {
+    padding : 5px;
+}
