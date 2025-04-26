@@ -1,3 +1,3 @@
-export const withoutNulls = function <T> (array: Array<T | null>): Array<T> {
-    return array.filter((item) => item !== null);
+export const withoutNullsAndUndefined = function <T> (array: Array<T | null | undefined>): Array<T> {
+    return array.filter((item) => item !== null && item !== undefined);
 };

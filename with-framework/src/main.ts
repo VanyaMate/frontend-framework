@@ -1,8 +1,10 @@
 import { f, h } from './runtime/h.ts';
+import { mountDOM } from './runtime/mountDOM.ts';
 
 
-const login = function () {
+const login = function (event: Event) {
     console.log('login');
+    event.preventDefault();
 };
 
 const form = h('form', { class: 'login-form', action: 'login' }, [
@@ -24,4 +26,5 @@ const counter = f([
     ]),
 ]);
 
-console.log(form, counter);
+mountDOM(document.querySelector('#app')!, form);
+mountDOM(document.querySelector('#app2')!, counter);

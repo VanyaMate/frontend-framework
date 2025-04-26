@@ -1,4 +1,4 @@
-import { withoutNulls } from './utils/arrays.ts';
+import { withoutNullsAndUndefined } from './utils/arrays.ts';
 
 
 export enum VNODE_TYPE {
@@ -8,7 +8,20 @@ export enum VNODE_TYPE {
 }
 
 export type hTag = string;
-export type hProps = Record<string, any>;
+export type hPropsClass =
+    string
+    | Array<string | null | undefined>
+    | Record<string, boolean>;
+
+export type hPropsStyle = Omit<CSSStyleDeclaration, 'getPropertyPriority' | 'getPropertyValue' | 'item' | 'removeProperty' | 'setProperty' | 'length' | 'parentRule'>;
+
+export type hProps =
+    Record<string, any>
+    & {
+        class?: hPropsClass;
+        style?: hPropsStyle;
+    };
+
 export type hChildren = Array<vAny | string | null>;
 export type vChildren = Array<vAny>;
 export type vAny =
@@ -16,23 +29,34 @@ export type vAny =
     | vElement
     | vFragment;
 
-export type vText = {
-    type: VNODE_TYPE.TEXT,
-    value: string,
-}
-export type vElement = {
-    type: VNODE_TYPE.ELEMENT,
-    tag: hTag,
-    props: hProps,
-    children: vChildren,
-}
-export type vFragment = {
-    type: VNODE_TYPE.FRAGMENT,
-    children: vChildren,
+export type vNode = {
+    el?: HTMLElement | Text;
 }
 
+export type vText =
+    {
+        type: VNODE_TYPE.TEXT,
+        value: string,
+    }
+    & vNode;
+
+export type vElement =
+    {
+        type: VNODE_TYPE.ELEMENT,
+        tag: hTag,
+        props: hProps,
+        children: vChildren,
+    }
+    & vNode;
+export type vFragment =
+    {
+        type: VNODE_TYPE.FRAGMENT,
+        children: vChildren,
+    }
+    & vNode;
+
 export const hChildrenToVChildren = function (children: hChildren): vChildren {
-    return withoutNulls(children)
+    return withoutNullsAndUndefined(children)
         .map(
             (child) => typeof child === 'string' ? t(child) : child,
         );
