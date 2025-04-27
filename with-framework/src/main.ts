@@ -1,5 +1,5 @@
-import { f, h } from './runtime/h.ts';
-import { mountDOM } from './runtime/mountDOM.ts';
+import { f, h } from './h.ts';
+import { mountDOM } from './mountDOM.ts';
 
 
 const login = function (event: Event) {

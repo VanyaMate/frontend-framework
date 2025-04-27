@@ -1,4 +1,5 @@
 import { withoutNullsAndUndefined } from './utils/arrays.ts';
+import { vNodeListeners } from './events.ts';
 
 
 export enum VNODE_TYPE {
@@ -46,6 +47,7 @@ export type vElement =
         tag: hTag,
         props: hProps,
         children: vChildren,
+        listeners?: vNodeListeners;
     }
     & vNode;
 export type vFragment =
@@ -78,9 +80,10 @@ export const f = function (children: hChildren): vFragment {
 
 export const h = function (tag: hTag, props: hProps = {}, children: hChildren = []): vElement {
     return {
-        type    : VNODE_TYPE.ELEMENT,
-        children: hChildrenToVChildren(children),
+        type     : VNODE_TYPE.ELEMENT,
+        children : hChildrenToVChildren(children),
         tag,
         props,
+        listeners: {},
     };
 };

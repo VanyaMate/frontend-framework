@@ -1,15 +1,27 @@
 {
-  "name": "with-framework",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "typescript": "~5.7.2",
-    "vite": "^6.3.1"
-  }
+    "name": "@vanyamate/framework",
+    "private": false,
+    "version": "0.0.1",
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "author": "VanyaMate",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "typescript": "~5.7.2",
+        "vite": "^6.3.1",
+        "vite-plugin-dts": "^4.5.3"
+    },
+    "files": [
+        "dist"
+    ]
 }

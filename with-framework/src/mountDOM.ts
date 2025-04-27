@@ -30,9 +30,9 @@ export const createElementNode = function (parentElement: HTMLElement, vNode: vE
               children,
           }       = vNode;
     const element = document.createElement(tag);
-    vNode.el      = element;
 
-    addEventListeners(element, events);
+    vNode.el        = element;
+    vNode.listeners = addEventListeners(element, events);
     setAttributes(element, attrs);
 
     children.forEach((child) => mountDOM(element, child));
