@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7206a859-ac19-4074-9c5a-33d2ba4fcecb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/with-framework/src/patchDOM.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/use-framework/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/use-framework/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/use-framework/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/use-framework/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/with-framework/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/with-framework/src/dispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/src/dispatcher.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/with-framework/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

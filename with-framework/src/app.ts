@@ -11,9 +11,7 @@ export type PayloadOf<Reducer> =
     : never;
 
 export type Reducer<State, Payload = any> = (state: State, payload: Payload) => State;
-export type Reducers<State> = {
-    [Command in string]: Reducer<State>
-}
+export type Reducers<State> = Record<string, Reducer<State>>
 
 export type Emit<ReducerList extends Reducers<any>> = <Key extends keyof ReducerList>(commandName: Key, payload: PayloadOf<ReducerList[Key]>) => void;
 
