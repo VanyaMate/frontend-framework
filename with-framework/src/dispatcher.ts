@@ -1,5 +1,14 @@
-export class Dispatcher {
-    #subs: Map<string, Array<Function>> = new Map();
+import { PayloadOf } from './app.ts';
+
+
+export type DispatchSub<Payload> = (payload: Payload) => void;
+
+export class Dispatcher<
+    Reducers,
+    Command extends keyof Reducers = keyof Reducers,
+    Handler extends DispatchSub<PayloadOf<Reducers[Command]>> = DispatchSub<PayloadOf<Reducers[Command]>>,
+> {
+    #subs: Map<Command, Array<Handler>> = new Map();
     #afterEveryCommand: Array<Function> = [];
 
     afterEveryCommand (handler: Function): () => void {
@@ -13,7 +22,7 @@ export class Dispatcher {
         };
     }
 
-    subscribe (commandName: string, handler: Function): () => void {
+    subscribe (commandName: Command, handler: Handler): () => void {
         if (!this.#subs.has(commandName)) {
             this.#subs.set(commandName, []);
         }
@@ -33,7 +42,7 @@ export class Dispatcher {
         };
     }
 
-    dispatch<T> (commandName: string, payload: T): void {
+    dispatch (commandName: Command, payload: PayloadOf<Reducers[Command]>): void {
         if (this.#subs.has(commandName)) {
             this.#subs.get(commandName)!.forEach((handler: Function) => handler(payload));
         }
