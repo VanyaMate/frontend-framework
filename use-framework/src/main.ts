@@ -1,4 +1,4 @@
-import { createApp, f, h } from '@vanyamate/framework';
+import { createApp, Emit, f, h, Reducers } from '@vanyamate/framework';
 
 
 type AppStateEdit = {
@@ -25,7 +25,7 @@ const state: AppState = {
 
 const reducers = {
     'update-current-todo': (state: AppState, currentTodo: string | null) => ({
-        ...state, currentTodo,
+        ...state, currentTodo: currentTodo ?? '',
     }),
     'add-todo'           : (state: AppState) => ({
         ...state,
@@ -81,11 +81,9 @@ const reducers = {
         ...state,
         todo: state.todo.toSpliced(idx, 1),
     }),
-};
+} satisfies Reducers<typeof state>;
 
-type Emit = (commandName: string, payload?: any) => void;
-
-const CreateTodo = function (state: AppState, emit: Emit) {
+const CreateTodo = function (state: AppState, emit: Emit<typeof reducers>) {
     return h('div', {}, [
         h('label', { for: 'todo-input' }, [ 'New todo' ]),
         h('input', {
@@ -112,7 +110,7 @@ const TodoItem = function ({ todo, i, edit }: {
     todo: string,
     i: number,
     edit: AppStateEdit
-}, emit: Emit) {
+}, emit: Emit<typeof reducers>) {
     const editing = edit.idx === i;
 
     if (editing) {
@@ -152,7 +150,7 @@ const TodoItem = function ({ todo, i, edit }: {
     }
 };
 
-const TodoList = function (state: AppState, emit: Emit) {
+const TodoList = function (state: AppState, emit: Emit<typeof reducers>) {
     return h(
         'ol',
         {},
@@ -165,7 +163,7 @@ const TodoList = function (state: AppState, emit: Emit) {
     );
 };
 
-const App = function (state: AppState, emit: Emit) {
+const App = function (state: AppState, emit: Emit<typeof reducers>) {
     return f([
         h('h1', {}, [ 'My todo' ]),
         CreateTodo(state, emit),
@@ -173,4 +171,6 @@ const App = function (state: AppState, emit: Emit) {
     ]);
 };
 
-createApp({ state, reducers, view: App }).mount(document.getElementById('app'));
+createApp({
+    state, reducers, view: App,
+}).mount(document.getElementById('app')!);

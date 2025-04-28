@@ -6,14 +6,14 @@ import { patchDOM } from './patchDOM.ts';
 
 
 export type PayloadOf<Reducer> =
-    Reducer extends (state: any, payload: infer P) => any
-    ? P
+    Reducer extends (state: any, payload: infer Payload) => any
+    ? Payload
     : never;
 
-export type Reducer<State, Payload = any> = (state: State, payload: Payload) => State;
+export type Reducer<State, Payload = any> = (state: State, payload?: Payload) => State;
 export type Reducers<State> = Record<string, Reducer<State>>
 
-export type Emit<ReducerList extends Reducers<any>> = <Key extends keyof ReducerList>(commandName: Key, payload: PayloadOf<ReducerList[Key]>) => void;
+export type Emit<ReducerList extends Reducers<any>> = <Key extends keyof ReducerList>(commandName: Key, payload?: PayloadOf<ReducerList[Key]>) => void;
 
 export type CreateAppProps<State, ReducerList extends Reducers<State>> = {
     state: State;
@@ -51,11 +51,12 @@ export const createApp = function <State, ReducerList extends Reducers<State>> (
 
     const mount = function (_parentElement: HTMLElement) {
         if (vDom) {
-            throw new Error(`App is mounted`);
+            throw new Error(`App is already mounted`);
         }
 
         parentElement = _parentElement;
         vDom          = view(state, emit);
+
         if (vDom && parentElement) {
             mountDOM(parentElement, vDom);
         }

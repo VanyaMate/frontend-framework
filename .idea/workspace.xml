@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7206a859-ac19-4074-9c5a-33d2ba4fcecb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/with-framework/_tests/array.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/with-framework/_tests/object.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/with-framework/src/utils/object.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/use-framework/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/use-framework/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/use-framework/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/use-framework/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/use-framework/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/use-framework/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/with-framework/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/with-framework/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/with-framework/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/with-framework/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/with-framework/src/dispatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/src/dispatcher.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/with-framework/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/with-framework/src/utils/arrays.ts" beforeDir="false" afterPath="$PROJECT_DIR$/with-framework/src/utils/arrays.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

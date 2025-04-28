@@ -1,7 +1,7 @@
 {
     "name": "@vanyamate/framework",
     "private": false,
-    "version": "0.0.2",
+    "version": "0.0.6",
     "type": "module",
     "exports": {
         ".": {
@@ -14,7 +14,8 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "test": "vitest"
     },
     "devDependencies": {
         "typescript": "~5.7.2",

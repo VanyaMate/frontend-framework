@@ -42,7 +42,7 @@ export class Dispatcher<
         };
     }
 
-    dispatch (commandName: Command, payload: PayloadOf<Reducers[Command]>): void {
+    dispatch (commandName: Command, payload?: PayloadOf<Reducers[Command]>): void {
         if (this.#subs.has(commandName)) {
             this.#subs.get(commandName)!.forEach((handler: Function) => handler(payload));
         }
